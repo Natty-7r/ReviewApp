@@ -4,8 +4,21 @@ import { useState } from "react";
 
 import { IoStar } from "react-icons/io5";
 
-const Rating = ({ rateBound = 5 }: { rateBound?: number }) => {
-  const [rating, setRating] = useState(0);
+const Rating = ({
+  rateBound = 5,
+  syncRating,
+  defaultRate,
+}: {
+  defaultRate?: number;
+  rateBound?: number;
+  syncRating: Function;
+}) => {
+  const [rating, setRating] = useState(defaultRate || 0);
+
+  const updateRating = (rate: number) => {
+    syncRating(rate);
+    setRating(rate);
+  };
   return (
     <div className="flex gap-1">
       {new Array(rateBound).fill(1).map((_, index) => (
@@ -13,7 +26,7 @@ const Rating = ({ rateBound = 5 }: { rateBound?: number }) => {
           rate={index + 1}
           key={index}
           rating={rating}
-          setRating={setRating}
+          setRating={updateRating}
         />
       ))}
     </div>
@@ -32,7 +45,7 @@ const RateStar = ({
   return (
     <IoStar
       className={cn(
-        "w-10 h-10 text-slate-200",
+        " text-slate-200 w-8 h-8 sm:w-10 sm:h-10",
         rating >= rate && "text-yellow-500"
       )}
       onMouseOver={() => {
