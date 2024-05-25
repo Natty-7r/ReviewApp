@@ -2,10 +2,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 
-const UserCard = ({ setOpenDialog }: { setOpenDialog: Function }) => {
+const UserCard = ({ setOpenDialog }: UserCardProps) => {
   return (
-    <Card className="p-2 sm:p-4">
-      <div className="flex  gap-8">
+    <Card className="p-2 sm:p-4 md:px-8 ">
+      <div className="flex  gap-8 md:gap-12">
         <Avatar className="h-16 w-16 sm:h-24 sm:w-24">
           <AvatarImage src="/img/user-1.png" />
           <AvatarFallback>MC</AvatarFallback>

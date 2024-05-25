@@ -4,15 +4,7 @@ import { useState } from "react";
 
 import { IoStar } from "react-icons/io5";
 
-const Rating = ({
-  rateBound = 5,
-  syncRating,
-  defaultRate,
-}: {
-  defaultRate?: number;
-  rateBound?: number;
-  syncRating: Function;
-}) => {
+const Rating = ({ rateBound = 5, syncRating, defaultRate }: RatingProps) => {
   const [rating, setRating] = useState(defaultRate || 0);
 
   const updateRating = (rate: number) => {
@@ -33,15 +25,7 @@ const Rating = ({
   );
 };
 
-const RateStar = ({
-  rate,
-  setRating,
-  rating,
-}: {
-  rate: number;
-  setRating: Function;
-  rating: number;
-}) => {
+const RateStar = ({ rate, setRating, rating }: RateStarProps) => {
   return (
     <IoStar
       className={cn(

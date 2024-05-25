@@ -6,12 +6,7 @@ const PraiseButton = ({
   value,
   praiseValue,
   onClickHandler,
-}: {
-  children: String;
-  praiseValue: Praise;
-  value: Praise;
-  onClickHandler: Function;
-}) => {
+}: PraiseButtonProps) => {
   return (
     <Button
       className={cn(
