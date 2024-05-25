@@ -9,7 +9,10 @@ type RatingProps = {
 type RateStarProps = {
   rate: number;
   setRating: Function;
+  preview: boolean;
   rating: number;
+  ratingPreview: number;
+  setRatingPreview: Function;
 };
 
 type PraiseButtonProps = {
